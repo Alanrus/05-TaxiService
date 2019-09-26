@@ -1,9 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Order order1 = new Order();
-        order1.distanceInMeters = 800_157;
-        int sumOrderAll = order1.sumOrder();
-        int sumDiscountAll = order1.sumDiscauntAll();
+        Order orderFirst = new Order();
+        int sumOrderAll = orderFirst.sumOrder(10_456);
+        int sumDiscountAll = orderFirst.sumDiscauntAll();
         sumOrderAll = sumOrderAll - sumDiscountAll;
         int sumOrderAllRub = sumOrderAll / 100;
         int sumOrderAllCop = sumOrderAll - sumOrderAllRub * 100;
