@@ -6,19 +6,13 @@ public class Order {
     int amountDiscount = 1_000_00;
     int maxSumDiscaunt = 100_00;
 
-    int sumOrder(int distanceInMeters) {
+    int calculatePrice(int distanceInMeters) {
         int sumOrder = boardingFee + pricePerMeter * distanceInMeters;
-        return sumOrder;
-    }
-
-    int sumDiscauntAll() {
-        int sumDiscauntAll = (discount * sumOrder(distanceInMeters) + 100) / 100;
-        if (sumDiscauntAll > maxSumDiscaunt) {
+        int sumDiscauntAll = (discount * sumOrder + 100) / 100;
+        if (sumDiscauntAll > maxSumDiscaunt)
             sumDiscauntAll = maxSumDiscaunt;
-        } else sumDiscauntAll = sumDiscauntAll;
-        if (sumOrder(distanceInMeters) > amountDiscount) {
-            sumDiscauntAll = sumDiscauntAll;
-        } else sumDiscauntAll = 0;
-        return sumDiscauntAll;
+        if (sumOrder < amountDiscount)
+            sumDiscauntAll = 0;
+        return sumOrder = sumOrder - sumDiscauntAll;
     }
 }
